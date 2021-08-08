@@ -9,7 +9,8 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './components/header/register/register.component';
 import { LoginComponent } from './components/header/login/login.component';
-import { MensajesComponent } from './components/mensajes/mensajes.component'
+import { MensajesComponent } from './components/mensajes/mensajes.component';
+import { NotFoundComponent } from './components/not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { MensajesComponent } from './components/mensajes/mensajes.component'
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    MensajesComponent
+    MensajesComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
