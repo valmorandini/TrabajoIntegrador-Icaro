@@ -1,1 +1,14 @@
-<p>mensajes works!</p>
+<div class="mensajes_container">
+<h1 class="mensajes__titulo">MENSAJES</h1>
+<!-- *ngIf para condiciones (*ngFor="mensaje.rgfg") -->
+<!-- ngClass / ngStyle   -->
+<div class="container mensajes" *ngIf="mensajes.length > 0">
+    <mat-nav-list>
+        <div class="mensajes__item" *ngFor="let mensaje of mensajes"> 
+            <h4>De: {{ mensaje.remitente }}</h4>
+            <h4>Asunto: {{ mensaje.asunto }}</h4>
+            <p>Mensaje: {{ mensaje.mensaje }}</p>
+        </div>
+     </mat-nav-list>
+</div>
+</div>

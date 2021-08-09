@@ -10,7 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { RegisterComponent } from './components/header/register/register.component';
 import { LoginComponent } from './components/header/login/login.component';
 import { MensajesComponent } from './components/mensajes/mensajes.component';
-import { NotFoundComponent } from './components/not-found/not-found.component'
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component'
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

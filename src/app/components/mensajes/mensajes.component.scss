@@ -1,0 +1,17 @@
+
+.mensajes{
+    max-width: 80%;
+    border: 1px solid;
+    border-bottom: 0;
+    &__container{
+
+    }
+    &__titulo{
+        text-align: center;
+        padding: 20px;
+    }
+    &__item{
+        border-bottom: 1px solid;
+        padding: 10px;
+    }
+}
