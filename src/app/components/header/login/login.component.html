@@ -1,20 +1,17 @@
-<p>login works!</p>
-<h2>Formulario</h2>
-<form>
+<div class="container">
+<h2 class="login__title">INICIAR SESION</h2>
+<form class="login__form" [formGroup]="loginForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Nombre de usuario</mat-label>
+    <input matInput required id="username" type="text" formControlName="username">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Contraseña</mat-label>
+    <input matInput required id="password" type="text" formControlName="password">
+  </mat-form-field>
   <div>
-    <label for="username">Nombre de usuario</label>
-    <br />
-    <input id="username" type="text" />
+    <button class="login__button" mat-flat-button>Ingresar</button>
+    <a routerLink="/register"><button type="button" class="login__button" mat-flat-button>Crear cuenta</button></a>
   </div>
-  <div>
-    <label for="password">Contraseña</label>
-    <br />
-    <input id="password" type="password" />
-  </div>
-  <div>
-    <label for="confirmpassword">Confirmar contraseña</label>
-    <br />
-    <input id="confirmpassword" type="password" />
-  </div>
-  <button>Submit</button>
 </form>
+</div>

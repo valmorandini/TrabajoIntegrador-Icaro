@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { MensajesService } from 'src/app/mensajes.service';
 
@@ -8,14 +9,16 @@ import { MensajesService } from 'src/app/mensajes.service';
 })
 export class MensajesComponent implements OnInit {
 
-  mensajes = [];
+  mensajesRecibidos = [];
+  mensajesEnviados = [];
 
   constructor(
     private _mensajesService: MensajesService
   ) { }
 
   ngOnInit(): void {
-    this.mensajes = this._mensajesService.getMensajes();
+    this.mensajesRecibidos = this._mensajesService.getMensajesRecibidos();
+    this.mensajesEnviados = this._mensajesService.getMensajesEnviados();
   }
 
 }

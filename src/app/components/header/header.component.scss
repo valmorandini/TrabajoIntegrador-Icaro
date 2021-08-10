@@ -3,12 +3,21 @@
     background-color: #212529;
     color: #eae9ec;
     
+    &__nav{
+        display:flex;
+        align-items: center;
+        
+    }
 
     &__container {
         display: flex;
         justify-content: space-around;
         align-items: center;
         padding: 40px 0;
+    }
+
+    &__button{
+        padding-left: 30px;
     }
 }
 

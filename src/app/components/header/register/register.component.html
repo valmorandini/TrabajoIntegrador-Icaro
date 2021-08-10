@@ -1,1 +1,73 @@
-<p>register works!</p>
+<div>
+    <h2 class="register__title">REGISTRARSE</h2>
+    <form class="register__form" [formGroup]="registerForm">
+        <div>
+            <div class="invalid-text"*ngIf="name!.invalid && name!.touched">
+                <small *ngIf="name!.errors?.required">El campo es requerido</small>
+                <small *ngIf="name!.errors?.pattern">Solo puede contener letras y espacios</small>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput id="name" type="text" formControlName="name">
+            </mat-form-field> 
+        </div>
+        <div>
+            <div class="invalid-text"*ngIf="lastName!.invalid && lastName!.touched">
+                <small *ngIf="lastName!.errors?.required">El campo es requerido</small>
+                <small *ngIf="lastName!.errors?.pattern">Solo puede contener letras y espacios</small>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Apellido</mat-label>
+                <input matInput id="lastname" type="text" formControlName="lastName">
+            </mat-form-field>
+        </div>
+        <div>
+            <div class="invalid-text"*ngIf="username!.invalid && username!.touched">
+                <small *ngIf="username!.errors?.required">El campo es requerido</small>
+                <small *ngIf="username!.errors?.pattern">Solo puede contener letras, numeros, guion y guion_bajo</small>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre de usuario</mat-label>
+                <input matInput id="username" type="text" formControlName="username">
+            </mat-form-field>
+        </div>
+        <div>
+            <div class="invalid-text"*ngIf="password!.invalid && password!.touched">
+                <small *ngIf="password!.errors?.required">El campo es requerido</small>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input matInput id="password" type="password" formControlName="password">
+            </mat-form-field>
+        </div>
+        <div>
+            <div class="invalid-text"*ngIf="confirmPassword!.invalid && confirmPassword!.touched">
+                <small *ngIf="confirmPassword!.errors?.required">El campo es requerido</small>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Confirmar contraseña</mat-label>
+                <input matInput id="confirmPassword" type="password" formControlName="confirmPassword">
+            </mat-form-field>
+        </div>
+        <div formGroupName="address">
+            <mat-form-field appearance="fill">
+                <mat-label>Pais</mat-label>
+                <mat-select formControlName="country">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let pais of paises" [value]="pais">{{pais}}</mat-option>
+            </mat-select>
+            </mat-form-field>
+            <br/>
+            <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <mat-select formControlName="province">
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let provincia of provincias" [value]="provincia" >{{provincia}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <br/>
+        <button class="register__button" mat-flat-button [disabled]="registerForm.invalid">Crear cuenta</button>
+    </form>
+    <p style="text-align:center">Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+</div>

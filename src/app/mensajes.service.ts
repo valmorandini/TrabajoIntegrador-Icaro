@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class MensajesService {
 
-  mensajes = [{
+  mensajesRecibidos = [{
     remitente: 'jose',
     asunto: 'holis',
     mensaje: 'sdfjnbsldjfnsldnf'
@@ -19,8 +19,26 @@ export class MensajesService {
     mensaje: 'sdfjnbsldjfnsldnf'
   }];
 
-  getMensajes() {
-    return this.mensajes;
+  mensajesEnviados = [{
+    destinatario: 'jose',
+    asunto: 'holis',
+    mensaje: 'sdfjnbsldjfnsldnf'
+  }, {
+    destinatario: 'nico',
+    asunto: 'holis',
+    mensaje: 'sdfjnbsldjfnsldnf'
+  }, {
+    destinatario: 'ana',
+    asunto: 'holis',
+    mensaje: 'sdfjnbsldjfnsldnf'
+  }];
+
+  getMensajesRecibidos() {
+    return this.mensajesRecibidos;
+  }
+
+  getMensajesEnviados() {
+    return this.mensajesEnviados;
   }
 
   constructor() { }
