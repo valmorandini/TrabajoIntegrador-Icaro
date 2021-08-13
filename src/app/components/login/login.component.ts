@@ -10,6 +10,7 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class LoginComponent implements OnInit {
   hide = true;
+  loginError = false;
 
   loginForm = this.fb.group({
     username: new FormControl('', Validators.required),
@@ -27,7 +28,11 @@ export class LoginComponent implements OnInit {
     this._usersService.login(data).subscribe((res:any) =>{
       console.log(res);
       localStorage.setItem('token', res.token);
+      this._usersService.loggedIn.next(true);
       this.router.navigate(['/']);
+    }, err => {
+      console.log('incorrecto')
+      this.loginError = true
     })
   }
 

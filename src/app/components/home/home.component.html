@@ -1,4 +1,9 @@
 <div class="container">
-
-    <p>home works!</p>
+    <div class="home" *ngIf="isLogged">
+        <h2 >Bienvenido, {{usuario.userName}}!</h2>
+    </div>
+    <div class="home" *ngIf="!isLogged">
+        <h2 >Bienvenido!</h2>
+        <h3>Para acceder a la mensajeria inicie sesión</h3>
+    </div>
 </div>

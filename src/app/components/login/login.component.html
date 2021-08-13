@@ -13,6 +13,7 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+      <small class="invalid-text" *ngIf="loginError">Nombre de usuario o contraseña incorrecta</small>
       <div>
         <button class="login__button" mat-flat-button (click)="singIn()">Ingresar</button>
         <a routerLink="/register"><button type="button" class="login__button" mat-flat-button>Crear cuenta</button></a>

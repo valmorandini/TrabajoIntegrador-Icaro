@@ -49,20 +49,21 @@
                 <input matInput id="confirmPassword" type="password" formControlName="confirmPassword">
             </mat-form-field>
         </div>
+        
         <div class="register__div" formGroupName="address">
             <mat-form-field appearance="fill">
                 <mat-label>Pais</mat-label>
-                <mat-select formControlName="country">
+                <mat-select formControlName="country" (selectionChange)="buscarCiudades($event.value)">
                 <mat-option>None</mat-option>
-                <mat-option *ngFor="let pais of paises" [value]="pais">{{pais}}</mat-option>
+                <mat-option *ngFor="let pais of paises" [value]="pais.id">{{pais.nombre}}</mat-option>
             </mat-select>
             </mat-form-field>
             <br/>
             <mat-form-field appearance="fill">
-                <mat-label>Provincia</mat-label>
+                <mat-label>Ciudad</mat-label>
                 <mat-select formControlName="city">
                 <mat-option>None</mat-option>
-                <mat-option *ngFor="let provincia of provincias" [value]="provincia" >{{provincia}}</mat-option>
+                <mat-option *ngFor="let ciudad of ciudades" [value]="ciudad.id" >{{ciudad.nombre}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>

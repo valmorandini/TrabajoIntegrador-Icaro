@@ -6,12 +6,13 @@ import { MensajesComponent } from './components/mensajes/mensajes.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'mensajes', component: MensajesComponent },
+  { path: 'mensajes', component: MensajesComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: '**', component: NotFoundComponent}

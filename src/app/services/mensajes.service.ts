@@ -9,20 +9,20 @@ const baseUrl = 'http://localhost:3000/api/v1/mensajes';
 export class MensajesService {
 
   
-  getAll(data) {
-    return this.http.get(baseUrl, data)
+  getAll(headers, params) {
+    return this.http.get(baseUrl, {headers: headers, params: params})
   }
 
   getById(id) {
     return this.http.get(`${baseUrl}/${id}`)
   }
 
-  create(data) {
-    return this.http.post(baseUrl, data)
+  create(headers, data) {
+    return this.http.post(baseUrl, data, {headers:headers})
   }
 
-  deleteById(id) {
-    return this.http.delete(`${baseUrl}/${id}`)
+  deleteById(headers,id) {
+    return this.http.delete(`${baseUrl}/${id}`, {headers:headers})
   }
   
   constructor(private http: HttpClient) { }

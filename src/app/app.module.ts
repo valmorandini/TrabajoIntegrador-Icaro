@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -45,9 +46,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatSelectModule,
     MatIconModule, 
     MatDividerModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [
+    {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
+    JwtHelperService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
