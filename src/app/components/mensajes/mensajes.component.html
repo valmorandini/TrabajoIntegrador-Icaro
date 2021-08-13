@@ -1,45 +1,48 @@
-<div class="mensajes_container">
+<div class="container">
 <h1 class="mensajes__titulo">MENSAJES</h1>
 
-<div class="container mensajes" *ngIf="mensajesRecibidos.length > 0">
+<div class="mensajes" *ngIf="mensajesRecibidos.length > 0">
     
         <mat-tab-group > 
                 <mat-tab  label = "Recibidos" > 
-                    <div class="mensajes__item" *ngFor="let mensaje of mensajesRecibidos"> 
-                        <h4>De: {{ mensaje.remitente }}</h4>
-                        <h4>Asunto: {{ mensaje.asunto }}</h4>
-                        <p>Mensaje: {{ mensaje.mensaje }}</p>
-                    </div> 
+                            <div class="mensajes__item" *ngFor="let mensaje of mensajesRecibidos"> 
+                                <h4>De: {{ mensaje.remitente }}</h4>
+                                <h4>Asunto: {{ mensaje.asunto }}</h4>
+                                <p>Mensaje: {{ mensaje.mensaje }}</p>
+                                <mat-divider></mat-divider>
+                            </div> 
                 </mat-tab > 
                 <mat-tab  label = "Enviados" >
                     <div class="mensajes__item" *ngFor="let mensaje of mensajesEnviados"> 
                         <h4>Para: {{ mensaje.destinatario }}</h4>
                         <h4>Asunto: {{ mensaje.asunto }}</h4>
                         <p>Mensaje: {{ mensaje.mensaje }}</p>
+                        <mat-divider></mat-divider>
                     </div> 
                 </mat-tab > 
                 <mat-tab  label = "Nuevo Mensaje" >
-                    <div class="mensajes__nuevo" >
+                    <div class="mensajes__nuevo--container">
+                    <form class="mensajes__nuevo" [formGroup]="mensajeNuevoForm">
                         <mat-form-field appearance="fill">
                             <mat-label>Destinatario</mat-label>
-                            <mat-select [(value)]="selected">
-                              <mat-option>None</mat-option>
-                              <mat-option value="option1">Option 1</mat-option>
-                              <mat-option value="option2">Option 2</mat-option>
-                              <mat-option value="option3">Option 3</mat-option>
-                            </mat-select>
-                          </mat-form-field>
+                            <mat-select formControlName="destinatario">
+                            <mat-option>None</mat-option>
+                            <mat-option *ngFor="let destinatario of destinatarios" [value]="destinatario">{{destinatario}}</mat-option>
+                        </mat-select>
+                        </mat-form-field>
                         <mat-form-field appearance="fill">
                             <mat-label>Asunto</mat-label>
-                            <input matInput>
-                          </mat-form-field>
-                          <mat-form-field appearance="fill">
+                            <input matInput id="asunto" type="text" formControlName="asunto">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width" appearance="fill">
                             <mat-label>Mensaje</mat-label>
-                            <textarea matInput></textarea>
+                            <textarea matInput formControlName="mensaje" ></textarea>
                           </mat-form-field>
-                    </div>
-
+                        <button class="mensajes__button" mat-flat-button [disabled]="mensajeNuevoForm.invalid">Enviar</button>
+                    </form>
+                </div>
                 </mat-tab>
+                
                 
         </mat-tab-group >
     </div>

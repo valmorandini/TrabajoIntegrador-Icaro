@@ -41,11 +41,12 @@ $TPI-theme: mat-light-theme((
 }
 
 body {
-    min-height: 100vh;
+    // min-height: 100vh;
 }
 
 .container {
     margin: 0 auto;
+    height: calc(100vh - 220px)
 }
-html, body { min-height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
