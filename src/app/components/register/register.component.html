@@ -1,6 +1,10 @@
-<div class="register__container">
+<div class="container">
+
+<div class="register__content">
     <h2 class="register__title">REGISTRARSE</h2>
     <form class="register__form" [formGroup]="registerForm">
+        <div class="formContainer">
+        <div class="register__div--container">
         <div class="register__div">
             <div class="invalid-text"*ngIf="name!.invalid && name!.touched">
                 <small *ngIf="name!.errors?.required">El campo es requerido</small>
@@ -21,6 +25,7 @@
                 <input matInput id="lastname" type="text" formControlName="lastName">
             </mat-form-field>
         </div>
+    </div>
         <div class="register__div">
             <div class="invalid-text"*ngIf="username!.invalid && username!.touched">
                 <small *ngIf="username!.errors?.required">El campo es requerido</small>
@@ -31,9 +36,10 @@
                 <input matInput id="username" type="text" formControlName="username">
             </mat-form-field>
         </div>
+        <div class="register__div--container">
         <div class="register__div">
             <div class="invalid-text"*ngIf="password!.invalid && password!.touched">
-                <small *ngIf="password!.errors?.required">El campo es requerido</small>
+                <small>El campo es requerido</small>
             </div>
             <mat-form-field appearance="fill">
                 <mat-label>Contraseña</mat-label>
@@ -42,15 +48,16 @@
         </div>
         <div class="register__div">
             <div class="invalid-text"*ngIf="confirmPassword!.invalid && confirmPassword!.touched">
-                <small *ngIf="confirmPassword!.errors?.required">El campo es requerido</small>
+                <small >El campo es requerido</small>
             </div>
             <mat-form-field appearance="fill">
                 <mat-label>Confirmar contraseña</mat-label>
                 <input matInput id="confirmPassword" type="password" formControlName="confirmPassword">
             </mat-form-field>
         </div>
+    </div>
         
-        <div class="register__div" formGroupName="address">
+        <div class="register__div--container" formGroupName="address">
             <mat-form-field appearance="fill">
                 <mat-label>Pais</mat-label>
                 <mat-select formControlName="country" (selectionChange)="buscarCiudades($event.value)">
@@ -68,7 +75,10 @@
             </mat-form-field>
         </div>
         <br/>
+    </div>
         <button class="register__button" mat-flat-button [disabled]="registerForm.invalid" (click)="singUp()">Crear cuenta</button>
     </form>
     <p style="text-align:center">Ya tienes cuenta? <a routerLink="/login">Inicia sesión</a></p>
+</div>
+
 </div>

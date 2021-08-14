@@ -1,6 +1,6 @@
 <div class="container">
   <div class="login__container">
-    <h2 class="login__title">INICIAR SESION</h2>
+    <h2 class="login__title">INICIAR SESIÓN</h2>
     <form class="login__form" [formGroup]="loginForm">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Nombre de usuario</mat-label>
@@ -14,9 +14,9 @@
         </button>
       </mat-form-field>
       <small class="invalid-text" *ngIf="loginError">Nombre de usuario o contraseña incorrecta</small>
-      <div>
-        <button class="login__button" mat-flat-button (click)="singIn()">Ingresar</button>
+      <div class="login__button--container">
         <a routerLink="/register"><button type="button" class="login__button" mat-flat-button>Crear cuenta</button></a>
+        <button class="login__button" mat-flat-button (click)="singIn()">Ingresar</button>
       </div>
     </form>
 </div>

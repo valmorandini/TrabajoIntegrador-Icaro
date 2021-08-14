@@ -1,29 +1,38 @@
 <div class="container">
+<div class="mensajes__container">
 <h1 class="mensajes__titulo">MENSAJES</h1>
 
 <div class="mensajes" *ngIf="mensajesRecibidos.length > 0">
-    
+    <div>
         <mat-tab-group > 
                 <mat-tab  label = "Recibidos" > 
                         <div *ngIf="mensajesRecibidos.length > 0">
+                            <div>
                             <div class="mensajes__item" *ngFor="let mensaje of mensajesRecibidos" > 
-                                <h4>De: {{ mensaje.remitente_id }}</h4>
-                                <h4>Fecha: {{ mensaje.fecha }}</h4>
-                                <p>Mensaje: {{ mensaje.cuerpo }}</p>
+                                <div class="mensajes__contenido">
+                                    <h4>De: {{ mensaje.remitente_id}}</h4>
+                                    <h4>Fecha: {{ mensaje.fecha }}</h4>
+                                    <p class="mensajes__msj">{{ mensaje.cuerpo }}</p>
+                                </div>
                                 <button class="mensajes__button" mat-flat-button (click)="eliminarMensaje(mensaje.id)">Eliminar</button>
-                                <mat-divider></mat-divider>
                             </div> 
+                            <mat-divider></mat-divider>
+                        </div>
                         </div>
                 </mat-tab > 
                 <mat-tab  label = "Enviados" >
                     <div *ngIf="mensajesEnviados.length > 0">
+                        <div>
                         <div class="mensajes__item" *ngFor="let mensaje of mensajesEnviados"> 
-                            <h4>Para: {{ mensaje.destinatario_id }}</h4>
-                            <h4>Fecha: {{ mensaje.fecha }}</h4>
-                            <p>Mensaje: {{ mensaje.cuerpo }}</p>
+                            <div class="mensajes__contenido">
+                                <h4>Para: {{ mensaje.destinatario_id }}</h4>
+                                <h4>Fecha: {{ mensaje.fecha }}</h4>
+                                <p class="mensajes__msj"> {{ mensaje.cuerpo }}</p>
+                            </div>
                             <button class="mensajes__button" mat-flat-button (click)="eliminarMensaje(mensaje.id)">Eliminar</button>
-                            <mat-divider></mat-divider>
                         </div> 
+                        <mat-divider></mat-divider>
+                    </div>
                     </div>
                 </mat-tab > 
                 <mat-tab  label = "Nuevo Mensaje" >
@@ -48,5 +57,6 @@
                 
         </mat-tab-group >
     </div>
-    
+</div>
+</div>
 </div>

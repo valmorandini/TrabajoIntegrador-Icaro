@@ -1,36 +1,68 @@
 .register{
     &__container{
         display: flex;
-        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__content{
+        display: flex;
+        width: 500px;
+        height: 600px;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        box-shadow: 0rem 0.5rem 1.5rem 0rem rgba(10, 10, 10, 0.54);
+        background-color: rgba(rgb(255, 255, 255), 0.7);
+        border-radius: 0.5rem;
     }
+
     &__button{
         background-color: #212529;
         color: #fff;
+        margin-bottom: 20px;
     }
     &__form{
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 25%;
-        padding-top: 30px;
+        
     }
     &__title{
         text-align: center;
+        color:white;
         padding: 20px 0px;
+        background-color:#212529;
+        width: 100%;
         
     }
 
     &__div{
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        justify-content: flex-end;
+        height: 100px;
+        &--container{
+            display: flex;
+        }
     }
 }
 
 .invalid-text {
     text-align: center;
     color: red;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    padding-top: 25px
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

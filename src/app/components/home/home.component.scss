@@ -1,10 +1,13 @@
 
 .container{
-    background-image:url(../../../assets/Spark-Geometric-background.jpg)
+    background: linear-gradient(transparent, transparent, black),
+    url(../../../assets/Spark-Geometric-background.jpg);
+    
 }
 h2{
     padding:20px;
     font-size: 45px;
+    padding-top: 60px;
 }
 
 

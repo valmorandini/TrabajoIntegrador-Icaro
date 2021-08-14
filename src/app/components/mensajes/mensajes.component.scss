@@ -2,16 +2,20 @@
 .mensajes{
 
     margin: 0px 40px 0px 40px;
-
-
-
+    
+    &__container{
+        width: 60%;
+        height: 90%;
+    }
     &__titulo{
         text-align: center;
         padding: 20px;
     }
     &__item{
-        // border-bottom: 1px solid;
         padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     &__nuevo{
         display: flex;
@@ -24,7 +28,21 @@
             width: 100%;
             justify-content: center;
         }
-       
-
+    
     }
+    &__msj{
+        padding-top: 10px;
+    }
+}
+
+button{ 
+    background-color: #212529;
+    color: #fff;
+    height: 80%
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

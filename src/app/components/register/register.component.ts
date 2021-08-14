@@ -22,8 +22,8 @@ export class RegisterComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{2,254}')]),
       lastName: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]{2,254}')]),
       username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9_-]{4,20}')]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),
-      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(16)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]),
+      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(16)]),
       address: new FormGroup({
         country: new FormControl('', Validators.required),
         city: new FormControl('', Validators.required)
@@ -38,6 +38,14 @@ export class RegisterComponent implements OnInit {
     country= this.registerForm.get('adress.country');
     city= this.registerForm.get('adress.city'); 
   
+    confirmPass(){
+      if(this.registerForm.get('password') == this.registerForm.get('confirmPassword')){
+        return true;
+      }else{
+        return false;
+      }
+    }
+
     singUp(){
       const data = {
         userName: this.username.value,

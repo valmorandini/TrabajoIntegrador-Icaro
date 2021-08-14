@@ -1,31 +1,48 @@
 .login{
     &__container{
         display: flex;
-        width: 100%;
+        width: 450px;
+        height: 370px;
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        box-shadow: 0rem 0.5rem 1.5rem 0rem rgba(10, 10, 10, 0.54);
+        background-color: rgba(rgb(255, 255, 255), 0.7);
+        border-radius: 0.5rem;
     }
     &__button{
         background-color: #212529;
         color: #fff;
+
+        &--container{
+            display: flex;
+            justify-content: space-evenly;
+        }
     }
 
     &__form{
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        width: 25%;
         padding-top: 30px;
     }
 
     &__title{
         text-align: center;
+        color:white;
         padding: 20px 0px;
+        background-color:#212529;
+        width: 100%;
     }
 }
 
 .invalid-text {
     text-align: center;
     color: red;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
