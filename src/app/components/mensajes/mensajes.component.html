@@ -10,7 +10,7 @@
                             <div>
                             <div class="mensajes__item" *ngFor="let mensaje of mensajesRecibidos" > 
                                 <div class="mensajes__contenido">
-                                    <h4>De: {{ mensaje.remitente_id}}</h4>
+                                    <h4>De: {{ getNombre(mensaje.remitente_id)}}</h4>
                                     <h4>Fecha: {{ mensaje.fecha }}</h4>
                                     <p class="mensajes__msj">{{ mensaje.cuerpo }}</p>
                                 </div>
@@ -25,7 +25,7 @@
                         <div>
                         <div class="mensajes__item" *ngFor="let mensaje of mensajesEnviados"> 
                             <div class="mensajes__contenido">
-                                <h4>Para: {{ mensaje.destinatario_id }}</h4>
+                                <h4>Para: {{ getNombre(mensaje.destinatario_id) }}</h4>
                                 <h4>Fecha: {{ mensaje.fecha }}</h4>
                                 <p class="mensajes__msj"> {{ mensaje.cuerpo }}</p>
                             </div>

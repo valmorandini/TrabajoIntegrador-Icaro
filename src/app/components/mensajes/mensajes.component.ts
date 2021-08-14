@@ -54,7 +54,6 @@ export class MensajesComponent implements OnInit {
   getMensajesEnviados(){
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + this.token);
     const params = new HttpParams().set('remitente_id', this.usuario.id);
-    console.log(headers, this.usuario.id);
     this._mensajesService.getAll(headers, params).subscribe((res) => {
       this.mensajesEnviados = res
       console.log(this.mensajesEnviados);
@@ -66,7 +65,6 @@ export class MensajesComponent implements OnInit {
     const params = new HttpParams().set('destinatario_id', this.usuario.id);
     console.log(headers, this.usuario.id);
     this._mensajesService.getAll(headers, params).subscribe((res) => {
-      console.log(res);
       this.mensajesRecibidos = res
       console.log(this.mensajesRecibidos);
     })
@@ -77,9 +75,13 @@ export class MensajesComponent implements OnInit {
     this._usersService.getAll(headers).subscribe((res) => {
       console.log(res);
       this.usuarios = res;
-      console.log(this.usuarios)
      
      })
+  }
+
+  getNombre(id){
+    let aux = this.usuarios.find((p) => p.id === id )
+    return aux.nombre
   }
 
   constructor(
