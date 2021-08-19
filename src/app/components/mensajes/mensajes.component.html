@@ -8,7 +8,7 @@
                 <mat-tab  label = "Recibidos" > 
                         <div *ngIf="mensajesRecibidos.length > 0">
                             <div>
-                            <div class="mensajes__item" *ngFor="let mensaje of mensajesRecibidos" > 
+                            <div class="mensajes__item" *ngFor="let mensaje of mensajesRecibidos | paginate:page_size:page_number" > 
                                 <div class="mensajes__contenido">
                                     <h4>De: {{ getNombre(mensaje.remitente_id)}}</h4>
                                     <h4>Fecha: {{ mensaje.fecha }}</h4>
@@ -17,13 +17,18 @@
                                 <button class="mensajes__button" mat-flat-button (click)="eliminarMensaje(mensaje.id)">Eliminar</button>
                             </div> 
                             <mat-divider></mat-divider>
+                            <mat-paginator [length] = "mensajesRecibidos.length" 
+                                [pageSize] = "page_size" 
+                                [pageSizeOptions] = "pageSizeOptions" 
+                                (page) = "handlePage($event)" > 
+                            </mat-paginator >
                         </div>
-                        </div>
-                </mat-tab > 
+                    </div>
+                    </mat-tab > 
                 <mat-tab  label = "Enviados" >
                     <div *ngIf="mensajesEnviados.length > 0">
                         <div>
-                        <div class="mensajes__item" *ngFor="let mensaje of mensajesEnviados"> 
+                        <div class="mensajes__item" *ngFor="let mensaje of mensajesEnviados | paginate:page_size:page_number"> 
                             <div class="mensajes__contenido">
                                 <h4>Para: {{ getNombre(mensaje.destinatario_id) }}</h4>
                                 <h4>Fecha: {{ mensaje.fecha }}</h4>
@@ -32,6 +37,11 @@
                             <button class="mensajes__button" mat-flat-button (click)="eliminarMensaje(mensaje.id)">Eliminar</button>
                         </div> 
                         <mat-divider></mat-divider>
+                        <mat-paginator [length] = "mensajesEnviados.length" 
+                                [pageSize] = "page_size" 
+                                [pageSizeOptions] = "pageSizeOptions" 
+                                (page) = "handlePage($event)" > 
+                            </mat-paginator >
                     </div>
                     </div>
                 </mat-tab > 
@@ -56,7 +66,9 @@
                 
                 
         </mat-tab-group >
+        
     </div>
+
 </div>
 </div>
 </div>

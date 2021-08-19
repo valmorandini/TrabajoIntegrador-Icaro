@@ -21,6 +21,9 @@ import { RegisterComponent } from './components/register/register.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import {MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
+import { PaginatePipe } from './pipes/paginate.pipe';
+import { CustomMatPaginatorIntl } from './paginator-es';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     RegisterComponent,
     LoginComponent,
     MensajesComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,
@@ -47,11 +51,13 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     MatIconModule, 
     MatDividerModule,
     HttpClientModule,
+    MatPaginatorModule
     
   ],
   providers: [
     {provide: JWT_OPTIONS, useValue: JWT_OPTIONS},
-    JwtHelperService
+    JwtHelperService,
+    {provide: MatPaginatorIntl, useClass: CustomMatPaginatorIntl}
   ],
   bootstrap: [AppComponent]
 })

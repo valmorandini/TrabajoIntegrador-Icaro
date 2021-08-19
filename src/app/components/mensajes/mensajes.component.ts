@@ -2,6 +2,7 @@
 import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators} from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { MensajesService } from 'src/app/services/mensajes.service';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -18,6 +19,9 @@ export class MensajesComponent implements OnInit {
   mensajesEnviados;
   usuario
   usuarios;
+  page_size: number = 5
+  page_number: number = 1
+  pageSizeOptions = [3, 5]
   
   
   destinatarios = ['jose', 'maria', 'carlos']
@@ -82,6 +86,12 @@ export class MensajesComponent implements OnInit {
   getNombre(id){
     let aux = this.usuarios.find((p) => p.id === id )
     return aux.nombre
+  }
+
+  handlePage(e: PageEvent) {
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex + 1
+
   }
 
   constructor(
